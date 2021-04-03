@@ -13,7 +13,7 @@ RUN apt-get install maven -y
 # Clone repository:
 RUN cd /opt/
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-RUN cd /opt/boxfuse-sample-java-war-hello/
+RUN cd boxfuse-sample-java-war-hello/
 
 # Execute:
 RUN mvn package
