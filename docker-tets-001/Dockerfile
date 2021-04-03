@@ -4,7 +4,7 @@
 #------------------------------------------------
 
 # Image:
-FROM tomcat
+# FROM tomcat
 FROM ubuntu:20.04
 
 # update, install software:
