@@ -4,12 +4,15 @@
 #------------------------------------------------
 
 # Image:
-# FROM tomcat
 FROM ubuntu:20.04
 
+# Timezone:
+#ENV TZ=Asia/Jerusalem
+#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # update, install software:
-RUN apt-get update && apt-get -y upgrade
-RUN install tomacate9 -y
+RUN apt-get update
+RUN install tomcat9 -y
 RUN apt-get install default-jdk -y
 RUN apt-get install git -y
 RUN apt-get install maven -y
@@ -21,9 +24,8 @@ RUN cd boxfuse-sample-java-war-hello/
 
 # Execute:
 RUN mvn -f "boxfuse-sample-java-war-hello/pom.xml" package
-# Copy:
+# Copy project to the webserver:
 RUN cp boxfuse-sample-java-war-hello/target/*.war /var/lib/tomcat9/webapps/
 
 # Expose port:
 EXPOSE 8080
-# End.
