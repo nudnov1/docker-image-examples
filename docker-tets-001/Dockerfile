@@ -12,10 +12,10 @@ FROM ubuntu:20.04
 
 # update, install software:
 RUN apt-get update
-RUN install tomcat9 -y
-RUN apt-get install default-jdk -y
-RUN apt-get install git -y
-RUN apt-get install maven -y
+RUN apt install tomcat9 -y
+RUN apt install default-jdk -y
+RUN apt install git -y
+RUN apt install maven -y
 
 # Clone repository:
 RUN cd /opt/
@@ -29,3 +29,5 @@ RUN cp boxfuse-sample-java-war-hello/target/*.war /var/lib/tomcat9/webapps/
 
 # Expose port:
 EXPOSE 8080
+
+CMD ["/usr/share/tomcat9/bin/catalina.sh", "run"]
